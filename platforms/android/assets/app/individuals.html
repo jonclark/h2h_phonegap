@@ -1,0 +1,21 @@
+<br>
+<br>
+<br>
+
+
+<div>
+	<table border="1">
+		<tr>
+			<td>Make Selection</td>
+			<td>ID</td>
+			<td>First Name</td>
+			<td>Last name</td>
+		</tr>
+		<tr ng-repeat="individual in individualList">
+			<td></td>
+			<td>{{individual.id}}</td>
+			<td>{{individual.name.givenName}}</td>
+			<td>{{individual.name.familyName}}</td>
+		</tr>
+	</table>
+</div>

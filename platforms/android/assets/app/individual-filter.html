@@ -1,0 +1,43 @@
+<div>
+
+	<p>This is another example of a <b>JSON REST Get</b> request. It shows all the Biometric information (Heartrate BPM)
+	for out test user.</p> 
+
+	<datepicker ng-model="dt" show-weeks="showWeeks" starting-day="1" >
+	</datepicker>
+	Unfiltered date: <b>{{dt}}</b><br>
+	Filtered date:<b>{{dt | date:'yyyy-MM-dd'}}</b><br>
+
+	<a href="" ng-click="setSortExpression('biometric.datetime')" >Apply Date Filter</a></th>
+
+	<table border="1">
+		<tr>
+			<td>Index</td>
+			<td>IndividualID</td>
+			<td>ID</td>
+			<td>DateTime</td>
+			<td>Unit</td>
+			<td>Value</td>
+		</tr>
+		
+		<!-- 
+		<tr ng-repeat="biometric in biometricList.result | filter:biometric.datetime={{dt}}">
+		 -->
+		 
+		<tr ng-repeat="biometric in biometricList.result | filter: '{{dt}}'">
+			<td>{{$index + 1}}</td>
+			<td>{{biometric.id}}</td>
+			<td>{{biometric.individualId}}</td>
+			<td>{{biometric.datetime}}</td>
+			<td>{{biometric.measurement.uom}}</td>
+			<td>{{biometric.measurement.value}}</td>
+		</tr>
+	
+	</table>
+</div>
+  
+<div>
+	<p><b>JSON REST <u>Put</u></b> request. Enter the BPM reading you wish to send to the server.</p>
+	<input type="text" ng-model="bpmText">
+	<button ng-click="sendBiometricToServer(bpmText)">My Heart is Beating</button>
+</div>
